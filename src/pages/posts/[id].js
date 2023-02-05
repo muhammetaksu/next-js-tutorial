@@ -1,6 +1,6 @@
-import Layout from "../../components/layout";
 import Head from "next/head";
 import utilStyles from "@/styles/utils.module.css";
+import Layout from "@/components/Layout";
 
 export async function getStaticPaths() {
     const posts = await fetch(`https://jsonplaceholder.typicode.com/posts`)

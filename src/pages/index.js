@@ -1,8 +1,6 @@
-import Alert from "@/components/Alert";
-import { CONFIG_FILES } from "next/dist/shared/lib/constants";
+import Layout, { siteTitle } from "@/components/Layout";
 import Head from "next/head";
 import Link from "next/link";
-import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
 
 export async function getServerSideProps(context) {
