@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import utilStyles from "../styles/utils.module.css";
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
     const posts = await fetch("https://jsonplaceholder.typicode.com/posts")
         .then((res) => res.json())
         .then((data) => data)
