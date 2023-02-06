@@ -26,6 +26,8 @@ export default function Home({ posts }) {
         }
     }, []);
 
+    console.log(process.env.NODE_ENV);
+
     const handlePosition = () => {
         sessionStorage.setItem("scrollPosition", window.pageYOffset);
     };
