@@ -1,4 +1,5 @@
 import Layout, { siteTitle } from "@/components/Layout";
+import { API_URL } from "@/environment";
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -26,11 +27,12 @@ export default function Home({ posts }) {
         }
     }, []);
 
-    console.log(process.env.NODE_ENV);
-
     const handlePosition = () => {
         sessionStorage.setItem("scrollPosition", window.pageYOffset);
     };
+
+    console.log(process.env.NODE_ENV);
+    console.log(API_URL);
 
     return (
         <Layout home>
