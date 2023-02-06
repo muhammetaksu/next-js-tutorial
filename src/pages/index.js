@@ -1,6 +1,7 @@
 import Layout, { siteTitle } from "@/components/Layout";
 import Head from "next/head";
 import Link from "next/link";
+import { useEffect } from "react";
 import utilStyles from "../styles/utils.module.css";
 
 export async function getStaticProps(context) {
@@ -17,6 +18,18 @@ export async function getStaticProps(context) {
 }
 
 export default function Home({ posts }) {
+    useEffect(() => {
+        const scrollPosition = sessionStorage.getItem("scrollPosition");
+        if (scrollPosition) {
+            window.scrollTo(0, parseInt(scrollPosition));
+            sessionStorage.removeItem("scrollPosition");
+        }
+    }, []);
+
+    const handlePosition = () => {
+        sessionStorage.setItem("scrollPosition", window.pageYOffset);
+    };
+
     return (
         <Layout home>
             <Head>
@@ -42,7 +55,11 @@ export default function Home({ posts }) {
                 <ul className={utilStyles.list}>
                     {posts?.map(({ id, body, title }) => (
                         <li className={utilStyles.listItem} key={id}>
-                            <Link href={`/posts/${id}`} as={`/posts/${id}`}>
+                            <Link
+                                href={`/posts/${id}`}
+                                as={`/posts/${id}`}
+                                onClick={() => handlePosition()}
+                            >
                                 {id}
                                 <br />
                                 {title}
