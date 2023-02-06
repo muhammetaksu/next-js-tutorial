@@ -31,8 +31,8 @@ export default function Home({ posts }) {
         sessionStorage.setItem("scrollPosition", window.pageYOffset);
     };
 
-    console.log(process.env.NODE_ENV);
-    console.log(API_URL);
+    // console.log(process.env.NODE_ENV);
+    // console.log(API_URL);
 
     return (
         <Layout home>
